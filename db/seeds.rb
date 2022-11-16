@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts "Destroying Gardens"
+
+Garden.destroy_all
+
+puts "Creating gardens"
+
+Garden.create!(name: "Mona Lisa", banner_url: "https://source.unsplash.com/random/?garden")
+Garden.create!(name: "Lisa Mona", banner_url: "https://source.unsplash.com/random/?garden")
+
+puts "Gardens created!"
