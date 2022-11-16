@@ -1,14 +1,20 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Gardens</h1>
+  <div class="d-flex justify-content-center align-items-center">
+    <h1 class="text-center">Here are the gardens</h1>
+    <%= link_to "New garden", new_garden_path, class: "btn btn-success mx-5" %>
+  </div>
 
-<div id="gardens">
+  <div class="cards mt-5">
   <% @gardens.each do |garden| %>
-    <%= render garden %>
-    <p>
-      <%= link_to "Show this garden", garden %>
-    </p>
+    <%= link_to garden, class: "text-decoration-none" do  %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= garden.banner_url %>)">
+        <%= garden.name %>
+      </div>
+    <% end %>
   <% end %>
+  </div>
+
 </div>
 
-<%= link_to "New garden", new_garden_path %>

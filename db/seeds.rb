@@ -11,7 +11,7 @@ Garden.destroy_all
 
 puts "Creating gardens"
 
-Garden.create!(name: "Mona Lisa", banner_url: "https://source.unsplash.com/random/?garden")
-Garden.create!(name: "Lisa Mona", banner_url: "https://source.unsplash.com/random/?garden")
+Garden.create!(name: "Mon jardin zen", banner_url: "https://source.unsplash.com/random/?garden")
+Garden.create!(name: "La jungle", banner_url: "https://source.unsplash.com/random/?jungle")
 
 puts "Gardens created!"

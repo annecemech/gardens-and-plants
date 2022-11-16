@@ -6,6 +6,7 @@
   </div>
 </div>
 <div class="container mt-5">
+  <h2>Add a new plant to your garden</h2>
   <%= simple_form_for [@garden, @plant] do |f| %>
     <%= f.input :name %>
     <%= f.input :image_url %>
@@ -13,11 +14,14 @@
   <% end %>
 </div>
 <div class="container">
-  <div class="cards mt-5">
+  <h2 class="mt-5">Your garden's plants</h2>
+  <div class="cards mt-2">
   <% @garden.plants.each do |plant| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= plant.image_url %>)">
       <%= plant.name %>
-      <%= link_to "Remove plant", plant_path(plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary"  %>
+      <%= link_to plant_path(plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do  %>
+        <i class="fa fa-trash card-category--trash" aria-hidden="true"></i>
+      <% end %>
     </div>
   <% end %>
   </div>
