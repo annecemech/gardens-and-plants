@@ -1,0 +1,18 @@
+<%= render @garden %>
+<div class="container">
+  <div class="cards mt-3">
+    <% @garden.plants.each do |plant| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= plant.image_url %>)">
+        <%= plant.name %>
+        <%= link_to plant_path(plant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-3">
+    <h4>Add a new plant to your garden</h4>
+    <%= render "plants/form", plant: @plant %>
+  </div>
+  <%= link_to "Back to gardens", gardens_path %>
+</div>
